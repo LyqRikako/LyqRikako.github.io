@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="作业1.计算机视觉概述配置环境本次作业采用OpenCV以及visualstudio2022的配置，使用的代码为c++ 1.编写程序实现读取真彩色图像并显示图像，并将彩色图像转换为灰度图像，然后保存图像编写代码如下： 1234567891011121314151617181920212223242526#include &lt;opencv2&#x2F;opencv.hpp&gt;#include&lt;io">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机视觉概述">
+<meta property="og:url" content="http://example.com/2023/09/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E6%A6%82%E8%BF%B0_%E4%BD%9C%E4%B8%9A1/index.html">
+<meta property="og:site_name" content="SecretBase">
+<meta property="og:description" content="作业1.计算机视觉概述配置环境本次作业采用OpenCV以及visualstudio2022的配置，使用的代码为c++ 1.编写程序实现读取真彩色图像并显示图像，并将彩色图像转换为灰度图像，然后保存图像编写代码如下： 1234567891011121314151617181920212223242526#include &lt;opencv2&#x2F;opencv.hpp&gt;#include&lt;io">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2023-09-07T11:50:03.053Z">
+<meta property="article:modified_time" content="2023-09-07T11:53:19.763Z">
+<meta property="article:author" content="豆豆小狗">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >计算机视觉概述</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=2.0.9' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.0.9' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"豆豆小狗","root":"/","typed_text":["Eleison"],"theme_version":"2.0.9","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"你现在正在浏览我的博客","hideText":"ohno！你离开了"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-09-07 19:53:19"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.9" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            Misono<span>Mika</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/arona.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            计算机视觉概述
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2023
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/littledog.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        MisonoMika
+    </h5>
+    
+        <div class="trm-label">
+            Kyrie
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/LyqRikako?tab=repositories" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Quis ut Deus:
+            </div>
+            <div class="trm-label trm-label-light">
+                TeaParty
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:1398632059@qq.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            09/07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            19:50
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            豆豆小狗
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="作业1-计算机视觉概述"><a href="#作业1-计算机视觉概述" class="headerlink" title="作业1.计算机视觉概述"></a>作业1.计算机视觉概述</h1><h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>本次作业采用OpenCV以及visualstudio2022的配置，使用的代码为c++</p>
+<h2 id="1-编写程序实现读取真彩色图像并显示图像，并将彩色图像转换为灰度图像，然后保存图像"><a href="#1-编写程序实现读取真彩色图像并显示图像，并将彩色图像转换为灰度图像，然后保存图像" class="headerlink" title="1.编写程序实现读取真彩色图像并显示图像，并将彩色图像转换为灰度图像，然后保存图像"></a>1.编写程序实现读取真彩色图像并显示图像，并将彩色图像转换为灰度图像，然后保存图像</h2><p>编写代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;opencv2/opencv.hpp&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace cv;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	Mat image;</span><br><span class="line"></span><br><span class="line">	Mat imgGray;</span><br><span class="line"></span><br><span class="line">	image = imread(&quot;C:/Users/13986/Desktop/fzu.jpg&quot;);//根据自己图像路径填写，此代码默认当前文件夹</span><br><span class="line"></span><br><span class="line">	cvtColor(image, imgGray, COLOR_BGR2GRAY);</span><br><span class="line"></span><br><span class="line">	namedWindow(&quot;image&quot;, WINDOW_NORMAL);</span><br><span class="line"></span><br><span class="line">	imshow(&quot;image&quot;, imgGray);</span><br><span class="line"></span><br><span class="line">	imwrite(&quot;C:/Users/13986/Desktop/fzu_gray.jpg&quot;, imgGray);//根据自己图像路径填写，此代码默认当前文件夹</span><br><span class="line"></span><br><span class="line">	waitKey();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<p><img src="C:\Users\13986\Desktop\typora_picture\fzu.jpg" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="C:\Users\13986\Desktop\typora_picture\QQ截图20230304104820.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="C:\Users\13986\Desktop\typora_picture\fzu_gray.jpg" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_55320151/article/details/127024536">https://blog.csdn.net/m0_55320151/article/details/127024536</a></p>
+<h2 id="2-编写程序对该图像实现反转变换、对数变换和幂变换"><a href="#2-编写程序对该图像实现反转变换、对数变换和幂变换" class="headerlink" title="2.编写程序对该图像实现反转变换、对数变换和幂变换"></a>2.编写程序对该图像实现反转变换、对数变换和幂变换</h2><p>编写代码如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;opencv2/opencv.hpp&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace cv;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">/*图像反转*（用指针访问像素）*/</span><br><span class="line">void Image_inversion(cv::Mat&amp; src, cv::Mat&amp; dst) &#123;</span><br><span class="line">	int nr = src.rows;</span><br><span class="line">	int nc = src.cols * src.channels();</span><br><span class="line">	src.copyTo(dst);</span><br><span class="line">	if (src.isContinuous() &amp;&amp; dst.isContinuous()) &#123;  //判断图像连续性</span><br><span class="line">		nr = 1;</span><br><span class="line">		nc = src.rows * src.cols * src.channels(); //行数*列数 * 通道数=一维数组的个数</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for (int i = 0; i &lt; nr; i++) &#123;</span><br><span class="line">		const uchar* srcdata = src.ptr &lt;uchar&gt;(i);  //采用指针访问像素，获取第i行的首地址</span><br><span class="line">		uchar* dstdata = dst.ptr &lt;uchar&gt;(i);</span><br><span class="line">		for (int j = 0; j &lt; nc; j++) &#123;</span><br><span class="line">			dstdata[j] = 255 - srcdata[j]; //开始处理每个像素</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LogTransform(cv::Mat&amp; src, cv::Mat&amp; dst, double c) &#123;</span><br><span class="line">	int nr = src.rows;</span><br><span class="line">	int nc = src.cols * src.channels();</span><br><span class="line">	src.copyTo(dst);</span><br><span class="line">	dst.convertTo(dst, CV_64F);</span><br><span class="line">	if (src.isContinuous() &amp;&amp; dst.isContinuous()) &#123;  //判断图像连续性</span><br><span class="line">		nr = 1;</span><br><span class="line">		nc = src.rows * src.cols * src.channels(); //行数*列数 * 通道数= 一维数组的个数</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for (int i = 0; i &lt; nr; i++) &#123;</span><br><span class="line">		const uchar* srcdata = src.ptr &lt;uchar&gt;(i);  //采用指针访问像素，获取第i行的首地址</span><br><span class="line">		double* dstdata = dst.ptr &lt;double&gt;(i);</span><br><span class="line">		for (int j = 0; j &lt; nc; j++) &#123;</span><br><span class="line">			dstdata[j] = c * log(double(1.0 + srcdata[j])); //开始处理每个像素</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cv::normalize(dst, dst, 0, 255, cv::NORM_MINMAX); //经过对比拉升（将像素值归一化到0-255）得到最终的图像</span><br><span class="line">	dst.convertTo(dst, CV_8U);  //转回无符号8位图像</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void power(cv::Mat&amp; image1, cv::Mat&amp; output_image) &#123;</span><br><span class="line">	Mat image1_gray; //定义灰度图像</span><br><span class="line">	cvtColor(image1, image1_gray, COLOR_BGR2GRAY); //灰度化</span><br><span class="line">	output_image = image1_gray.clone();</span><br><span class="line">	for (int i = 0; i &lt; image1.rows; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for (int j = 0; j &lt; image1.cols; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			output_image.at&lt;uchar&gt;(i, j) = 6 * pow((double)image1.at&lt;uchar&gt;(i,</span><br><span class="line">				j), 0.5); //幂律变换 s=6*r^0.5</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	normalize(output_image, output_image, 0, 255, NORM_MINMAX); /*图像归一化，转到</span><br><span class="line">	0~255范围内*/</span><br><span class="line">		convertScaleAbs(output_image, output_image); //数据类型转换到CV_8U</span><br><span class="line">&#125;</span><br><span class="line">int main(void)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	Mat image, inversion, log, Power;</span><br><span class="line"></span><br><span class="line">	image = imread(&quot;C:/Users/13986/Desktop/fzu.jpg&quot;);//根据自己图像路径填写，此代码默认当前文件夹</span><br><span class="line">	Image_inversion(image, inversion);</span><br><span class="line">	LogTransform(image, log, 10);</span><br><span class="line">	power(image, Power);</span><br><span class="line">	imwrite(&quot;C:/Users/13986/Desktop/Log.jpg&quot;, log);</span><br><span class="line">	imwrite(&quot;C:/Users/13986/Desktop/Inversion.jpg&quot;, inversion);</span><br><span class="line">	imwrite(&quot;C:/Users/13986/Desktop/Power.jpg&quot;, Power);</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下</p>
+<p>反转：</p>
+<p><img src="C:\Users\13986\Desktop\typora_picture\Inversion.jpg" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>对数变换：<img src="C:\Users\13986\Desktop\typora_picture\Log.jpg" alt="Log" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>幂变换：</p>
+<p><img src="C:\Users\13986\Desktop\typora_picture\Power.jpg" alt="Power" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>参考文章：<a target="_blank" rel="noopener" href="https://www.likecs.com/show-204087677.html">https://www.likecs.com/show-204087677.html</a></p>
+<h2 id="3-编写程序对该图像进行直方图均衡化。"><a href="#3-编写程序对该图像进行直方图均衡化。" class="headerlink" title="3.编写程序对该图像进行直方图均衡化。"></a>3.编写程序对该图像进行直方图均衡化。</h2><p>编写代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">#include &lt;opencv2/opencv.hpp&gt;</span><br><span class="line">#include &lt;opencv2/highgui.hpp&gt;</span><br><span class="line">#include &lt;opencv2/highgui/highgui_c.h&gt; </span><br><span class="line"></span><br><span class="line">using namespace cv;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main(int argc, char* argv)</span><br><span class="line">&#123;</span><br><span class="line">	Mat src, dst, dst1;</span><br><span class="line">	src = imread(&quot;C:/Users/13986/Desktop/fzu.jpg&quot;);</span><br><span class="line">	if (!src.data)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;could not load image...\n&quot;);</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line">	char input[] = &quot;input image&quot;;</span><br><span class="line">	char output[] = &quot;histogram iamge&quot;;</span><br><span class="line"></span><br><span class="line">	namedWindow(input, CV_WINDOW_AUTOSIZE);</span><br><span class="line">	namedWindow(output, CV_WINDOW_AUTOSIZE);</span><br><span class="line">	imshow(input, src);</span><br><span class="line"></span><br><span class="line">	// 分割通道</span><br><span class="line">	vector&lt;Mat&gt;channels;</span><br><span class="line">	split(src, channels);</span><br><span class="line"></span><br><span class="line">	Mat blue, green, red;</span><br><span class="line">	blue = channels.at(0);</span><br><span class="line">	green = channels.at(1);</span><br><span class="line">	red = channels.at(2);</span><br><span class="line">	// 分别对BGR通道做直方图均衡化</span><br><span class="line">	equalizeHist(blue, blue);</span><br><span class="line">	equalizeHist(green, green);</span><br><span class="line">	equalizeHist(red, red);</span><br><span class="line">	// 合并通道</span><br><span class="line">	merge(channels, dst);</span><br><span class="line">	imshow(output, dst);</span><br><span class="line">	imwrite(&quot;C:/Users/13986/Desktop/equalize.jpg&quot;, dst);</span><br><span class="line"></span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<p><img src="C:\Users\13986\Desktop\typora_picture\QQ截图20230304182319.png" alt="QQ截图20230304182319" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="C:\Users\13986\Desktop\typora_picture\equalize.jpg" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45525272/article/details/122663041">https://blog.csdn.net/weixin_45525272/article/details/122663041</a></p>
+<h2 id="4-请围绕我国国情，谈谈我国人工智能和计算机视觉的发展情况，并结合某个应用行业，分析计算机视觉的应用前景。"><a href="#4-请围绕我国国情，谈谈我国人工智能和计算机视觉的发展情况，并结合某个应用行业，分析计算机视觉的应用前景。" class="headerlink" title="4.请围绕我国国情，谈谈我国人工智能和计算机视觉的发展情况，并结合某个应用行业，分析计算机视觉的应用前景。"></a>4.请围绕我国国情，谈谈我国人工智能和计算机视觉的发展情况，并结合某个应用行业，分析计算机视觉的应用前景。</h2><p>  2017年，我国制定了《新一代人工智能发展规划》，描绘了未来十几年我国人工智能发展的宏伟蓝图，确立了 “三步走” 目标：到 2020 年人工智能总体技术和应用与世界先进水平同步；到 2025 年人工智能基础理论实现重大突破、技术与应用部分达到世界领先水平；到 2030 年人工智能理论、技术与应用总体达到世界领先水平，成为世界主要人工智能创新中心。<br>  一项对学术搜索引擎微软学术(Microsoft Academic)收录的人工智能论文的分析显示，中国正朝着产生重大影响的方向稳步前进。这项由艾伦人工智能研究所进行的分析发现，在被引用最多的前10%的论文中，中国的作者比例稳步上升。其份额在2018年达到了26.5%的峰值，与美国的29%相差不远，而美国的份额正在下降。如果这一趋势继续下去，中国明年在这个指标上可能会超过美国。其他分析显示，中国人工智能论文的平均引用量一直在稳步增长，高于世界平均水平，但低于美国作者的论文。<br>  西安交通大学人工智能与机器人研究所所长郑南宁表示，中国在计算机视觉、语音识别和自然语言处理方面也拥有世界领先的公司。<br>但在打造人工智能的核心技术工具方面，中国仍然落后。例如，由美国学者和企业开发的开源平台TensorFlow和Caffe，在世界各地的工业和学术界得到了广泛的应用。郑南宁表示，中国由百度开发的PaddlePaddle是一个主要的开源平台，主要用于AI产品的快速开发。<br>  中国在人工智能硬件方面也是落后的。全球领先的人工智能半导体芯片大多由英伟达、英特尔、苹果、谷歌和AMD等美国公司制造。郑南宁说：“我们在设计支持先进人工智能系统的计算芯片方面也缺乏专业知识。”<br>郑南宁预测，中国可能需要5-10年的时间才能达到美国和英国在基础理论和算法方面的创新水平，但这是可以实现的目标。<br>  关于现在中国人工智能的应用，除了大家都很熟悉的人脸识别一、对话小程序、发票识别自动报销等，还有用来操作机器人、无人机，用来帮助机器识别触觉，用来做污水治理、用来肿瘤检测、岩体探测、用来反欺诈、用作教育机器人，金融风控等等，人工智能和计算机视觉在国内可以说是已经遍地开花。</p>
+
+</article>
+    
+    
+
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/09/07/%E4%BD%9C%E4%B8%9A2.%E7%A9%BA%E9%97%B4%E5%9F%9F%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" #.">
+                    未分类
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/09/07/%E4%BD%9C%E4%B8%9A2.%E7%A9%BA%E9%97%B4%E5%9F%9F%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" class="trm-anima-link">
+                    空间域图像增强
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/09/07</li>
+                <li>19:50</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/09/07/OpenCV/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" #.">
+                    未分类
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/09/07/OpenCV/" class="trm-anima-link">
+                    OpenCV
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/09/07</li>
+                <li>19:50</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.9
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item">
+            博客已萌萌哒运行 <span id="since" class="trm-accent-color"></span> 天
+        </div>
+     
+
+     
+</footer>
+
+<script>
+    function show_date_time () {
+        var BirthDay = new Date("03/18/2023 17:00:00");
+        var today = new Date();
+        var timeold = (today.getTime() - BirthDay.getTime());
+        var msPerDay = 24 * 60 * 60 * 1000
+        var day = Math.floor(timeold / msPerDay)
+        since.innerHTML = day
+    }
+    show_date_time()
+</script>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.0.9"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.0.9"></script>
+
+</body>
+
+</html>

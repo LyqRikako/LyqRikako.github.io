@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="python笔记&#x3D;&#x3D;变量&#x3D;&#x3D;变量名区分大小写，不能使用数字开头，可以用中文 &#x3D;&#x3D;字符串&#x3D;&#x3D;可以用单引号，也可以用双引号转义字符原始字符串r&quot;c\....&quot;字符串前加上r表示原始字符串，转义字符不再生效字符串换行可以使用\进行换行 字符串的拼接1&quot;123&quot;+&quot;456&amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python笔记">
+<meta property="og:url" content="http://example.com/2023/09/07/#%20python%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="SecretBase">
+<meta property="og:description" content="python笔记&#x3D;&#x3D;变量&#x3D;&#x3D;变量名区分大小写，不能使用数字开头，可以用中文 &#x3D;&#x3D;字符串&#x3D;&#x3D;可以用单引号，也可以用双引号转义字符原始字符串r&quot;c\....&quot;字符串前加上r表示原始字符串，转义字符不再生效字符串换行可以使用\进行换行 字符串的拼接1&quot;123&quot;+&quot;456&amp;qu">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-09-07T11:49:31.677Z">
+<meta property="article:modified_time" content="2023-09-07T11:53:31.572Z">
+<meta property="article:author" content="豆豆小狗">
+<meta name="twitter:card" content="summary">
+
+
+<title >python笔记</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=2.0.9' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.0.9' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"豆豆小狗","root":"/","typed_text":["Eleison"],"theme_version":"2.0.9","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"你现在正在浏览我的博客","hideText":"ohno！你离开了"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-09-07 19:53:31"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.9" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            Misono<span>Mika</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/arona.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            python笔记
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2023
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/littledog.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        MisonoMika
+    </h5>
+    
+        <div class="trm-label">
+            Kyrie
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/LyqRikako?tab=repositories" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Quis ut Deus:
+            </div>
+            <div class="trm-label trm-label-light">
+                TeaParty
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:1398632059@qq.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            09/07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            19:49
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            豆豆小狗
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="python笔记"><a href="#python笔记" class="headerlink" title="python笔记"></a>python笔记</h1><h2 id="x3D-x3D-变量-x3D-x3D"><a href="#x3D-x3D-变量-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;变量&#x3D;&#x3D;"></a>&#x3D;&#x3D;变量&#x3D;&#x3D;</h2><p>变量名区分大小写，不能使用数字开头，可以用中文</p>
+<h2 id="x3D-x3D-字符串-x3D-x3D"><a href="#x3D-x3D-字符串-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;字符串&#x3D;&#x3D;"></a>&#x3D;&#x3D;字符串&#x3D;&#x3D;</h2><p>可以用单引号，也可以用双引号<br>转义字符<br>原始字符串<code>r&quot;c\....&quot;</code><br>字符串前加上r表示原始字符串，转义字符不再生效<br>字符串换行可以使用\进行换行</p>
+<h3 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;123&quot;+&quot;456&quot;=&quot;123456&quot;</span><br></pre></td></tr></table></figure>
+<p>print(“hello”*50)</p>
+<h3 id="三引号字符串"><a href="#三引号字符串" class="headerlink" title="三引号字符串"></a>三引号字符串</h3><p>相当于说明文档</p>
+<h2 id="x3D-x3D-基础语法-x3D-x3D"><a href="#x3D-x3D-基础语法-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;基础语法&#x3D;&#x3D;"></a>&#x3D;&#x3D;基础语法&#x3D;&#x3D;</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>input 接收用户输入的值<br><code> str=input(tipmsg)</code><br>str 表示一个字符串类型的变量，input 会将读取到的字符串放入 str 中。<br>tipmsg 表示提示信息，它会显示在控制台上，告诉用户应该输入什么样的内容；如果不写 tipmsg，就不会有任何提示信息。</p>
+<h3 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h3><p><code>int(str)</code></p>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">is 判断两个对象的id是否相等</span><br><span class="line">is not 判断两个对象的id是否不相等</span><br></pre></td></tr></table></figure>
+<h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h3><p>python通过缩进确定语句所属的层级</p>
+<h3 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h3><p>通过break语句跳出当前层级</p>
+<h3 id="生成随机数"><a href="#生成随机数" class="headerlink" title="生成随机数"></a>生成随机数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line">random.randint(1,10)/随机生成一个1-10的随机数</span><br><span class="line">random.getstate()获得随机数生成器的状态</span><br><span class="line">random.setstate()设置随机数生成器的状态</span><br></pre></td></tr></table></figure>
+<h2 id="x3D-x3D-数据类型-x3D-x3D"><a href="#x3D-x3D-数据类型-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;数据类型&#x3D;&#x3D;"></a>&#x3D;&#x3D;数据类型&#x3D;&#x3D;</h2><h3 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h3><p>python的整数具有无限大的长度<br>数字相除都会产生小数</p>
+<h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><p>浮点数并非百分百精准，因此可能出错<br>如0.3&lt;0.1+0.2</p>
+<h3 id="Decimal"><a href="#Decimal" class="headerlink" title="Decimal"></a>Decimal</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import decimal</span><br><span class="line">a=decimal.Decimal(&quot;0.1&quot;)</span><br><span class="line">b=decimal.Decimal(&quot;0.2&quot;)</span><br><span class="line">print(a+b)</span><br><span class="line">生成精确地数值</span><br></pre></td></tr></table></figure>
+<h3 id="科学计数法"><a href="#科学计数法" class="headerlink" title="科学计数法"></a>科学计数法</h3><p>&#96;5e-05</p>
+<h3 id="虚数"><a href="#虚数" class="headerlink" title="虚数"></a>虚数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=4+5j</span><br><span class="line">a.real=4</span><br><span class="line">a.img=5</span><br></pre></td></tr></table></figure>
+<h3 id="数字运算"><a href="#数字运算" class="headerlink" title="数字运算"></a>数字运算</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 向下取整</span><br><span class="line">% 求余数 </span><br><span class="line">x==(x//y)*y+(x%y)</span><br><span class="line">divmod(3,2)</span><br><span class="line">=(1,1)//调用divmod函数得到一个除法向下取整结果和余数</span><br><span class="line">abs()返回绝对值，如果是复试，返回绝对值</span><br><span class="line">int()强制转换，去掉小数部分</span><br><span class="line">float()</span><br><span class="line">complex(&quot;1+2j&quot;)=(1+2j)转换为复数</span><br><span class="line">pow(x,y)==x**y x的y次方</span><br><span class="line">pow(x,y,z)=x**y%z</span><br></pre></td></tr></table></figure>
+<h3 id="bool类型"><a href="#bool类型" class="headerlink" title="bool类型"></a>bool类型</h3><p>bool值为FALSE的情况<br>定义为FALSE的对象：None False<br>值为0的数字类型：0 0.0 0j Decima（0) Fraction(0,1)<br>空的序列和集合： “”,(),[],{},set(),range(0)</p>
+<h3 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h3><p>and<br>or<br>not<br>python中的任何对象都能直接进行真值测试，用于if和while语句的条件判断，也可以作为布尔逻辑运算符的操作数</p>
+<h3 id="短路逻辑和运算符优先级"><a href="#短路逻辑和运算符优先级" class="headerlink" title="短路逻辑和运算符优先级"></a>短路逻辑和运算符优先级</h3><p>从左往右，只有当第一个操作数的值无法确定逻辑运算的结果时，才对第二个操作数进行求值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 and 4=4 右边数值决定最终值，因此是4</span><br><span class="line">3 or  4=3 左边数字可以决定最终值，因此是3</span><br></pre></td></tr></table></figure>
+<p>最后得出影响结果的关键值</p>
+<p>优先级：lambda or and not &lt;,&lt;&#x3D;,&gt;,&gt;&#x3D;,in,not in,is,is not 按位或|  按位异或^ 按位与&amp; 移位 加减法<br>优先级从低到高</p>
+<h2 id="x3D-x3D-分支结构-x3D-x3D"><a href="#x3D-x3D-分支结构-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;分支结构&#x3D;&#x3D;"></a>&#x3D;&#x3D;分支结构&#x3D;&#x3D;</h2><h3 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h3><p>判断一个条件，如果条件成立，则执行其包含的某条语句或某个代码块<br>根据缩进决定级别，同一个代码块中缩进量相等</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if condition:</span><br><span class="line">    statements</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if condition:</span><br><span class="line">    statements</span><br><span class="line">else:</span><br><span class="line">    statements</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if condition1:</span><br><span class="line">    statements</span><br><span class="line">elif condition2:</span><br><span class="line">    statements</span><br><span class="line">elif condition3:</span><br><span class="line">    statements</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if condition1:</span><br><span class="line">    statements</span><br><span class="line">elif condition2:</span><br><span class="line">    statements</span><br><span class="line">elif condition3:</span><br><span class="line">    statements</span><br><span class="line">else:</span><br><span class="line">    statements</span><br></pre></td></tr></table></figure>
+<h4 id="条件表达式"><a href="#条件表达式" class="headerlink" title="条件表达式"></a>条件表达式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">符合条件的语句 if condition else 不符合条件的语句</span><br><span class="line">print(&quot;right&quot;) if 3&lt;2 else print(&quot;wrong&quot;)</span><br><span class="line"></span><br><span class="line">level = ( &#x27;d&#x27; if 0&lt;=score else ....</span><br><span class="line">          &#x27;d&#x27; if 0&lt;=score else ....</span><br><span class="line">          &#x27;d&#x27; if 0&lt;=score else ....)</span><br></pre></td></tr></table></figure>
+<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while condition:</span><br><span class="line">    statements</span><br></pre></td></tr></table></figure>
+<h4 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h4><p>跳出当前循环，进行下次循环</p>
+<h4 id="循环中的else语句"><a href="#循环中的else语句" class="headerlink" title="循环中的else语句"></a>循环中的else语句</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i=1</span><br><span class="line">while i&lt;5:</span><br><span class="line">    print(i)</span><br><span class="line">    i+=1</span><br><span class="line">else:</span><br><span class="line">    print(&quot;jieshu&quot;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">i=1</span><br><span class="line">while i&lt;5:</span><br><span class="line">    print(i)</span><br><span class="line">    if i==2:</span><br><span class="line">        break</span><br><span class="line">    i+=1</span><br><span class="line">else:</span><br><span class="line">    print(&quot;jieshu&quot;)</span><br></pre></td></tr></table></figure>
+<p>这种情况下break跳出时while循环为真，不执行else语句</p>
+<h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for 变量 in 可迭代对象:</span><br><span class="line">    statements</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for each in &quot;fish&quot;:</span><br><span class="line">    print(each)</span><br></pre></td></tr></table></figure>
+<p>for else 当循环执行完毕（即遍历完 iterable 中的所有元素）后，会执行 else 子句中的代码，如果在循环过程中遇到了 break 语句，则会中断循环，此时不会执行 else 子句。</p>
+<h4 id="range序列"><a href="#range序列" class="headerlink" title="range序列"></a>range序列</h4><p>range（stop）从0开始到9共十个数字<br>range（start，stop）<br>range（start，stop，step）<br>左闭右开</p>
+<h2 id="x3D-x3D-列表-x3D-x3D"><a href="#x3D-x3D-列表-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;列表&#x3D;&#x3D;"></a>&#x3D;&#x3D;列表&#x3D;&#x3D;</h2><h3 id="列表的创建"><a href="#列表的创建" class="headerlink" title="列表的创建"></a>列表的创建</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rhyme=[1,2,3,4,5]</span><br><span class="line">for each in rhyme:</span><br><span class="line">    print(rhyme)</span><br><span class="line"></span><br><span class="line">for each in range(len(rhyme)):</span><br><span class="line">    print(rhyme[each])</span><br></pre></td></tr></table></figure>
+<p>最后一个元素的下标索引值也可以是-1，从后往前面元素依次递减</p>
+<h3 id="列表切片"><a href="#列表切片" class="headerlink" title="列表切片"></a>列表切片</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">左闭右开</span><br><span class="line">rhyme[0:3]  [1,2,3]</span><br><span class="line">rhyme[:4]  [1,2,3,4] </span><br><span class="line">rhyme[2:]  [3,4,5]</span><br><span class="line">rhyme[:]   [1,2,3,4,5]</span><br><span class="line">rhyme[::2] [1,3,5]</span><br><span class="line">rhyme[::-1] [5,4,3,2,1]</span><br></pre></td></tr></table></figure>
+<h3 id="列表的方法"><a href="#列表的方法" class="headerlink" title="列表的方法"></a>列表的方法</h3><h4 id="增"><a href="#增" class="headerlink" title="增"></a>增</h4><p>.append()每次添加一个元素<br>.extend() 方法的参数为一个可迭代的，新的内容追加到原列表最后一个元素的后面<br>rhyme[len(rhyme):]&#x3D;[7] 相当于append<br>rhyme[len(rhyme):]&#x3D;[7，8，9]  相当于extend<br>rhyme.insert(position,obj)在指定索引位置插入一个对象</p>
+<h4 id="删"><a href="#删" class="headerlink" title="删"></a>删</h4><p>rhyme.remove(element) 删除最前面的一个符合条件的元素<br>rhyme.pop(position) 删除制定下标的元素，默认为最后一个元素<br>rhyme.clear() 删除所有元素</p>
+<h4 id="列表和字符串"><a href="#列表和字符串" class="headerlink" title="列表和字符串"></a>列表和字符串</h4><p>列表是可变的，字符串是不可变的<br>可以利用rhyme[len(rhyme):]&#x3D;[7，8，9]  相当于extend，进行列表内容的的替换</p>
+<p>rhyme.sort() 列表排序<br>rhyme.reverse() 列表倒置</p>
+<h4 id="查"><a href="#查" class="headerlink" title="查"></a>查</h4><p>.count(x) 返回值为x的数量<br>.index(x,start,end) 查找值为x的下标，范围为start到end 左闭右开<br>.copy()复制列表，返回复制后的新列表<br>或者num_copy&#x3D;num[:</p>
+<h4 id="列表的加法和乘法"><a href="#列表的加法和乘法" class="headerlink" title="列表的加法和乘法"></a>列表的加法和乘法</h4><p>列表的加法要求两边都是列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A=[0]+[1]=[0,1]</span><br></pre></td></tr></table></figure>
+<p>列表的乘法则是重复列表内容若干次</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A=[0]*3=[0,0,0]</span><br></pre></td></tr></table></figure>
+<p>&#x3D;&#x3D;对Python列表使用乘法，对于不可变对象（如数字、字符串）而言是复制值，但对可变对象（如列表、字典）而言则是复制引用，因此对于包含可变对象的列表切莫使用列表乘法，可使用列表生成式代替。&#x3D;&#x3D;</p>
+<h4 id="列表的嵌套"><a href="#列表的嵌套" class="headerlink" title="列表的嵌套"></a>列表的嵌套</h4><p>列表的嵌套又称为二维列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">matrix=[[1,2,3],[4,5,6]]</span><br><span class="line">matrix=[[1,2,3],</span><br><span class="line">        [4,5,6],</span><br><span class="line">        [7,8,9]]</span><br><span class="line">matrix</span><br><span class="line">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span><br></pre></td></tr></table></figure>
+<p>for i in range(3):<br>    A[i]&#x3D;[0]*3<br>&#x3D;&#x3D;python中可以用is判断是否为同一个对象&#x3D;&#x3D;   </p>
+<h3 id="列表中的引用和拷贝"><a href="#列表中的引用和拷贝" class="headerlink" title="列表中的引用和拷贝"></a>列表中的引用和拷贝</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x=[1,2,3]</span><br><span class="line">y=x 实质是引用，y引用x 想要复制需要用copy</span><br><span class="line">y=x.copy;y=x[:]都是浅拷贝 </span><br><span class="line">浅拷贝如果包含嵌套对象的话，只拷贝外层对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line">x=[[1,2,3],[4,5,6]]</span><br><span class="line">y=copy.copy(x) 浅拷贝</span><br><span class="line">y=copy.deepcopy(x)深拷贝</span><br></pre></td></tr></table></figure>
+<h3 id="列表推导式"><a href="#列表推导式" class="headerlink" title="列表推导式"></a>列表推导式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=[1,2,3,4,5]</span><br><span class="line">for i in range(5):</span><br><span class="line">    a[i]*=2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a=[i*2 for i in a] 	列表推导式</span><br><span class="line"></span><br><span class="line">code=[ord(c) for c in&quot;FISH&quot;]</span><br><span class="line">code</span><br><span class="line">[70, 73, 83, 72] ord将单个字符转换为ascll码</span><br><span class="line"></span><br><span class="line">matrix=[[1,2,3],</span><br><span class="line">        [4,5,6],</span><br><span class="line">        [7,8,9]]</span><br><span class="line">col2=[row[1] for row in matrix]获得整个矩阵第二列的值</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>列表推导式是创建一个新的列表，再赋值为原先的变量名</p>
+<h4 id="列表推导式创建2维列表"><a href="#列表推导式创建2维列表" class="headerlink" title="列表推导式创建2维列表"></a>列表推导式创建2维列表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s=[[0]*3 for i in range(3)]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">even=[i for i in range(10) if i%2==0]</span><br></pre></td></tr></table></figure>
+<p>加上if条件的列表推导式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[x+y for x in &quot;fishc&quot; for y in&quot;FISHC&quot;]</span><br><span class="line"></span><br><span class="line">flat</span><br><span class="line">[&#x27;fF&#x27;, &#x27;fI&#x27;, &#x27;fS&#x27;, &#x27;fH&#x27;, &#x27;fC&#x27;, &#x27;iF&#x27;, &#x27;iI&#x27;, &#x27;iS&#x27;, &#x27;iH&#x27;, &#x27;iC&#x27;, &#x27;sF&#x27;, &#x27;sI&#x27;, &#x27;sS&#x27;, &#x27;sH&#x27;, &#x27;sC&#x27;, &#x27;hF&#x27;, &#x27;hI&#x27;, &#x27;hS&#x27;, &#x27;hH&#x27;, &#x27;hC&#x27;, &#x27;cF&#x27;, &#x27;cI&#x27;, &#x27;cS&#x27;, &#x27;cH&#x27;, &#x27;cC&#x27;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[[x,y] for x in range(10) if x%2==0 for y in range(10) if y%3==0]</span><br><span class="line"></span><br><span class="line">flat1</span><br><span class="line">[[0, 0], [0, 3], [0, 6], [0, 9], [2, 0], [2, 3], [2, 6], [2, 9], [4, 0], [4, 3], [4, 6], [4, 9], [6, 0], [6, 3], [6, 6], [6, 9], [8, 0], [8, 3], [8, 6], [8, 9]]</span><br></pre></td></tr></table></figure>
+<h2 id="x3D-x3D-元组-x3D-x3D"><a href="#x3D-x3D-元组-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;元组&#x3D;&#x3D;"></a>&#x3D;&#x3D;元组&#x3D;&#x3D;</h2><h3 id="元组的定义"><a href="#元组的定义" class="headerlink" title="元组的定义"></a>元组的定义</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rhyme=(1,2,3)</span><br><span class="line">rhyme=1,2,3</span><br></pre></td></tr></table></figure>
+<p>生成一个只有一个元素的元组<br><code>x=(1,)</code></p>
+<h4 id="元组的打包，解包"><a href="#元组的打包，解包" class="headerlink" title="元组的打包，解包"></a>元组的打包，解包</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t=(123,&quot;fish&quot;,3.14)</span><br><span class="line">x,y,z=t //解包，列表和字符串也可以进行解包</span><br></pre></td></tr></table></figure>
+<h4 id="元组嵌套列表"><a href="#元组嵌套列表" class="headerlink" title="元组嵌套列表"></a>元组嵌套列表</h4><p>如果元组中嵌套的是列表，列表可以进行修改</p>
+<h3 id="元组的操作"><a href="#元组的操作" class="headerlink" title="元组的操作"></a>元组的操作</h3><p>元组是不可修改的</p>
+<p>获取切片方式和列表相同，元组只可进行count和index操作<br>可以正常使用加 乘<br>元组可以进行迭代</p>
+<p>不存在元组推导式，存在生成器</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="字符串的操作"><a href="#字符串的操作" class="headerlink" title="字符串的操作"></a>字符串的操作</h3><p>判断回文数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;是回文数&quot; if x==x[::-1]</span><br></pre></td></tr></table></figure>
+<h3 id="字符串的方法"><a href="#字符串的方法" class="headerlink" title="字符串的方法"></a>字符串的方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">capitalize 首字母大写，其他小写 并不是返回源字符串</span><br><span class="line">casefold   所有字母小写</span><br><span class="line">title      所有单词首字母大写，其他小写</span><br><span class="line">swapcase   大小写反转</span><br><span class="line">upper      所有字母大写</span><br><span class="line">lower      所有字母小写 只能处理英语字母</span><br><span class="line"></span><br><span class="line">字符串对齐</span><br><span class="line">center(width)</span><br><span class="line">ljust(width)</span><br><span class="line">rjust(width)</span><br><span class="line">zfill(width)左对齐，前面用0填充  如果有符号会把符号移到最左</span><br><span class="line">center(width,fillchar)使用fillchar进行填充</span><br></pre></td></tr></table></figure>
+
+<h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x.count（）查找字符在字符串中出现的次数，指定起始和结束</span><br><span class="line">find（）寻找子字符串出现的次数，指定起始和结束</span><br><span class="line">rfind（）从右边开始找</span><br><span class="line">index（）找到第一次出现的索引</span><br></pre></td></tr></table></figure>
+
+<h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">expandtabs()用空格代替制表符，返回一个新的字符串</span><br><span class="line">replace（str1，str2，count）将子串str1换为子串str2，次数count，默认为-1 全部替换</span><br><span class="line">maketrans（&quot;abcdefg&quot;,&quot;1234567&quot;，ignore） 制定替换规则,生成一个table，忽略指定的ignore字符串</span><br><span class="line">translate（table） 按照table规则进行替换</span><br></pre></td></tr></table></figure>
+
+<h4 id="判断-检测"><a href="#判断-检测" class="headerlink" title="判断 检测"></a>判断 检测</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">startswith(&quot;&quot; start，end) 判断字符串是否是开头</span><br><span class="line">endswith(&quot;&quot;,start,end) 判断是否为结尾</span><br><span class="line">可以填写多个，只要有一个匹配就为真</span><br><span class="line"></span><br><span class="line">istille() 判断所有单词是否开头大写，其他小写</span><br><span class="line">isupper() 是否全是大写</span><br><span class="line">isalpha() 是否全是字母</span><br><span class="line">isspace() 判断是否为空字符串，包括换行符</span><br><span class="line">isprintable() 判断是否全能打印</span><br><span class="line">isdecimal     判断是否为数字</span><br><span class="line">isdigit       判断是否为数字，可以识别次方</span><br><span class="line">isnumeric     判断是否为数字，可以识别次方，罗马数字，中文</span><br><span class="line">isidentifier  判断是否合法标识符</span><br><span class="line">import keyword  iskeyword  判断是否是python保留标识符</span><br></pre></td></tr></table></figure>
+
+<h4 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lstrip 左边不留空白</span><br><span class="line">rstrip 右边不留白</span><br><span class="line">strip  左右不留白</span><br><span class="line">strip（&quot;str&quot;）按照字符为单位，去除所有str中包含的字符</span><br><span class="line"></span><br><span class="line">如果要精确去除一个子字符串</span><br><span class="line">removeprefix   去除前缀</span><br><span class="line">removesuffix   去除后缀</span><br></pre></td></tr></table></figure>
+
+<h4 id="切割"><a href="#切割" class="headerlink" title="切割"></a>切割</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">partition(x)从左到右找到x，将字符串分为三段</span><br><span class="line">rpartition(x)从右到左找到x，将字符串分为三段</span><br><span class="line">返回一个三元组</span><br><span class="line"></span><br><span class="line">split（切割符号，分割次数）默认分割空格，分割全部内容，切割的结果不包含切割符号</span><br><span class="line">rsplit 从右切割</span><br><span class="line">splitlines 将字符串按行分割，并以列表的形式返回</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">join(list/元组) 拼接的内容可以是列表，也可以是元组</span><br></pre></td></tr></table></figure>
+<p>join比加号的效率高特别多，因此优先使用join</p>
+<h4 id="格式化字符串"><a href="#格式化字符串" class="headerlink" title="格式化字符串"></a>格式化字符串</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">year=2023</span><br><span class="line">&quot;现在是&#123;&#125;&quot;.format(year)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">format  使用花括号占位，format中填写参数</span><br><span class="line">多个括号则多个参数</span><br><span class="line">format(a,b,c)</span><br><span class="line">花括号中可以写上数字，代表使用的参数顺序</span><br></pre></td></tr></table></figure>
+</article>
+    
+    
+
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/09/07/OpenCV/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" #.">
+                    未分类
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/09/07/OpenCV/" class="trm-anima-link">
+                    OpenCV
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/09/07</li>
+                <li>19:50</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/09/07/vue/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" #.">
+                    未分类
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/09/07/vue/" class="trm-anima-link">
+                    vue
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/09/07</li>
+                <li>19:49</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.9
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item">
+            博客已萌萌哒运行 <span id="since" class="trm-accent-color"></span> 天
+        </div>
+     
+
+     
+</footer>
+
+<script>
+    function show_date_time () {
+        var BirthDay = new Date("03/18/2023 17:00:00");
+        var today = new Date();
+        var timeold = (today.getTime() - BirthDay.getTime());
+        var msPerDay = 24 * 60 * 60 * 1000
+        var day = Math.floor(timeold / msPerDay)
+        since.innerHTML = day
+    }
+    show_date_time()
+</script>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.0.9"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.0.9"></script>
+
+</body>
+
+</html>
