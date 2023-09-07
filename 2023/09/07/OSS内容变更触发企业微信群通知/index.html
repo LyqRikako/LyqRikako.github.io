@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="OSS内容变更触发企业微信群通知环境部署1.服务器端系统为centos7 python3.8.6安装第三方包Flask，requests 12pip3 install Flaskpip3 install requests 运行程序：nohup python3 .&#x2F;wecatrobot.py --wechatUrl 企业微信机器人链接  &amp;访问ip为 1localhost为服务器所在ip 2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSS内容变更触发企业微信群通知">
+<meta property="og:url" content="http://example.com/2023/09/07/OSS%E5%86%85%E5%AE%B9%E5%8F%98%E6%9B%B4%E8%A7%A6%E5%8F%91%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%BE%A4%E9%80%9A%E7%9F%A5/index.html">
+<meta property="og:site_name" content="SecretBase">
+<meta property="og:description" content="OSS内容变更触发企业微信群通知环境部署1.服务器端系统为centos7 python3.8.6安装第三方包Flask，requests 12pip3 install Flaskpip3 install requests 运行程序：nohup python3 .&#x2F;wecatrobot.py --wechatUrl 企业微信机器人链接  &amp;访问ip为 1localhost为服务器所在ip 2">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-09-07T11:26:11.131Z">
+<meta property="article:modified_time" content="2023-09-07T11:39:38.911Z">
+<meta property="article:author" content="豆豆小狗">
+<meta name="twitter:card" content="summary">
+
+
+<title >OSS内容变更触发企业微信群通知</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=2.0.9' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.0.9' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"豆豆小狗","root":"/","typed_text":["Eleison"],"theme_version":"2.0.9","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"你现在正在浏览我的博客","hideText":"ohno！你离开了"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-09-07 19:39:38"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.9" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            Misono<span>Mika</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/arona.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            OSS内容变更触发企业微信群通知
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2023
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/littledog.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        MisonoMika
+    </h5>
+    
+        <div class="trm-label">
+            Kyrie
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/LyqRikako?tab=repositories" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Quis ut Deus:
+            </div>
+            <div class="trm-label trm-label-light">
+                TeaParty
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:1398632059@qq.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            09/07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            19:26
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            豆豆小狗
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="OSS内容变更触发企业微信群通知"><a href="#OSS内容变更触发企业微信群通知" class="headerlink" title="OSS内容变更触发企业微信群通知"></a>OSS内容变更触发企业微信群通知</h1><h2 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h2><h3 id="1-服务器端"><a href="#1-服务器端" class="headerlink" title="1.服务器端"></a>1.服务器端</h3><p>系统为centos7 python3.8.6<br>安装第三方包Flask，requests</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install Flask</span><br><span class="line">pip3 install requests</span><br></pre></td></tr></table></figure>
+<p>运行程序：<br><code>nohup python3 ./wecatrobot.py --wechatUrl 企业微信机器人链接  &amp;</code><br>访问ip为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost为服务器所在ip</span><br></pre></td></tr></table></figure>
+<h3 id="2-oss端"><a href="#2-oss端" class="headerlink" title="2.oss端"></a>2.oss端</h3><h4 id="配置事件通知"><a href="#配置事件通知" class="headerlink" title="配置事件通知"></a>配置事件通知</h4><p>登录OSS管理控制台。<br>单击Bucket列表，然后单击srcbucket。<br>在左侧导航栏，选择数据处理 &gt; 事件通知。<br>在事件通知页面，单击创建规则。<br>在创建规则面板，按说明配置各项参数，然后单击确定。<br>为目标存储空间destbucket配置事件通知。<br>单击左侧导航栏的Bucket列表，然后单击destbucket。<br>在左侧导航栏，选择数据处理 &gt; 事件通知。<br>在事件通知页面，单击创建规则。<br>在创建规则面板，按如下说明配置各项参数，然后单击确定。</p>
+<p>例如选择接收终端为<code>http://138.2.75.31:5000/webhook</code><br>选择事件类型为ObjectCreatedGroup 所有方式创建新文件<br>以上步骤配置完成后，事件通知规则约10分钟后生效。</p>
+<h3 id="3-程序运行"><a href="#3-程序运行" class="headerlink" title="3.程序运行"></a>3.程序运行</h3><p>参考脚本代码如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"># coding=UTF-8</span><br><span class="line">import base64</span><br><span class="line">import json</span><br><span class="line">from flask import Flask, request</span><br><span class="line">import argparse</span><br><span class="line">import requests</span><br><span class="line">from datetime import datetime</span><br><span class="line">from datetime import timedelta</span><br><span class="line">from datetime import timezone</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/webhook&#x27;, methods=[&#x27;POST&#x27;])</span><br><span class="line">def receive_oss_notification():</span><br><span class="line">    # 获取请求中的消息内容</span><br><span class="line">    message = base64.b64decode(request.get_data().decode(&#x27;utf-8&#x27;))</span><br><span class="line"></span><br><span class="line">    # 打印消息内容的日志</span><br><span class="line">    print(&#x27;Received message:&#x27;, message)</span><br><span class="line"></span><br><span class="line">    # 将消息内容转换为JSON格式</span><br><span class="line">    message_data = json.loads(message)</span><br><span class="line">    print(&#x27;message_data:&#x27;,message_data)</span><br><span class="line">    # 获取事件类型和Bucket名称</span><br><span class="line">    event_type = message_data[&#x27;events&#x27;][0][&#x27;oss&#x27;][&#x27;ruleId&#x27;]</span><br><span class="line">    bucket_name = message_data[&#x27;events&#x27;][0][&#x27;oss&#x27;][&#x27;bucket&#x27;][&#x27;name&#x27;]</span><br><span class="line">    file_name = message_data[&#x27;events&#x27;][0][&#x27;oss&#x27;][&#x27;object&#x27;][&#x27;key&#x27;]</span><br><span class="line">    oss_address =&#x27;https://ako-test.oss-cn-zhangjiakou.aliyuncs.com/&#x27;</span><br><span class="line">    event_time = message_data[&#x27;events&#x27;][0][&#x27;eventTime&#x27;]</span><br><span class="line">    BJ_TZ = timezone(timedelta(hours=8),name=&#x27;Asia/Beijing&#x27;,)</span><br><span class="line">    # utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)</span><br><span class="line">    utc_now=datetime.strptime(event_time,&#x27;%Y-%m-%dT%H:%M:%S.%fZ&#x27;)</span><br><span class="line">    beijing_now = utc_now.astimezone(BJ_TZ)</span><br><span class="line">    print(beijing_now, beijing_now.tzname())</span><br><span class="line"></span><br><span class="line">    # # 用户名</span><br><span class="line">    # user_name = params[&#x27;user_name&#x27;]</span><br><span class="line">    # # 提交类型</span><br><span class="line">    # object_kind = params[&#x27;object_kind&#x27;]</span><br><span class="line">    # # 总commits数</span><br><span class="line">    # total_commits_count = str(params[&#x27;total_commits_count&#x27;])</span><br><span class="line">    # # 项目名称</span><br><span class="line">    # repository_name = params[&#x27;repository&#x27;][&#x27;name&#x27;]</span><br><span class="line">    # # 分支</span><br><span class="line">    # ref = params[&#x27;ref&#x27;]</span><br><span class="line">    # 发送内容</span><br><span class="line">    # content = &#x27;终端异常日志动态\n&#x27;+&#x27;时间:&#x27;+str(beijing_now)+str(beijing_now.tzname())+&#x27;\n&#x27;+&quot;类型:&quot;+event_type+&#x27;\n&#x27;+&#x27;文件路径:&#x27;+oss_address+file_name</span><br><span class="line">    # 引用形式列出提交的id</span><br><span class="line">   # for object in params[&#x27;commits&#x27;]:</span><br><span class="line">    #    content = content + &#x27;&amp;gt; [&#x27; + object[&#x27;id&#x27;][0:8] + &#x27;]&#x27; + &#x27;(&#x27; + object[&#x27;url&#x27;] + &#x27;)&#x27; + &#x27;: &#x27; + object[</span><br><span class="line">     #       &#x27;title&#x27;] + &#x27;\n&#x27;</span><br><span class="line">    if event_type==&#x27;upload&#x27;:type=&#x27;上传&#x27;</span><br><span class="line">    if event_type==&#x27;delete&#x27;:type=&#x27;删除&#x27;</span><br><span class="line"></span><br><span class="line">    body = &#123;</span><br><span class="line">            &quot;msgtype&quot;: &quot;markdown&quot;,</span><br><span class="line">            &quot;markdown&quot;: &#123;</span><br><span class="line">                &quot;content&quot;: &#x27;&#x27;&#x27;</span><br><span class="line">                 # 终端异常日志活动</span><br><span class="line">&lt;font color=&quot;comment&quot;&gt;终端异常日志动态&lt;/font&gt;</span><br><span class="line">&lt;font color=&quot;comment&quot;&gt;操作时间&lt;/font&gt;:&#x27;&#x27;&#x27; + str(beijing_now)+str(beijing_now.tzname()) + &#x27;&#x27;&#x27;</span><br><span class="line">&lt;font color=&quot;comment&quot;&gt;操作类型&lt;/font&gt;:&#x27;&#x27;&#x27; + type + &#x27;&#x27;&#x27;</span><br><span class="line">&lt;font color=&quot;comment&quot;&gt;文件路径&lt;/font&gt;:&#x27;&#x27;&#x27; + oss_address+file_name + &#x27;&#x27;&#x27;</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    requests.request(&#x27;POST&#x27;, url, headers=&#123;&#x27;Content-Type&#x27;: &#x27;application/json;charset=UTF-8&#x27;&#125;, json=body)</span><br><span class="line">    return &#x27;OK&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # 获取ArgumentParser对象</span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line">    # 添加参数</span><br><span class="line">    parser.add_argument(&#x27;--wechatUrl&#x27;, type=str)</span><br><span class="line">    # args是一个命名空间</span><br><span class="line">    url = args = parser.parse_args().wechatUrl</span><br><span class="line">    if url is not None:</span><br><span class="line">        # 可以接收webhook的地址和端口，可以指定GitLab地址 自定义端口</span><br><span class="line">        app.run(&#x27;0.0.0.0&#x27;, 5000, debug=True)</span><br><span class="line">    print(&quot;启动参数 --wechatUrl 为空, 程序退出&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>代码运行后，服务器发送post请求，从oss端收到base64编码后的json数据，格式如下</p>
+<p>新增文件删除文件</p>
+
+</article>
+    
+    
+
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/09/07/%E4%BA%9A%E9%A9%AC%E9%80%8A%E4%BA%91device-app%E9%80%9A%E7%9F%A5/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" #.">
+                    未分类
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/09/07/%E4%BA%9A%E9%A9%AC%E9%80%8A%E4%BA%91device-app%E9%80%9A%E7%9F%A5/" class="trm-anima-link">
+                    app事件通知
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/09/07</li>
+                <li>19:26</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/09/07/amazon_lambda/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" #.">
+                    未分类
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/09/07/amazon_lambda/" class="trm-anima-link">
+                    amazon lambda
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/09/07</li>
+                <li>19:26</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.9
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item">
+            博客已萌萌哒运行 <span id="since" class="trm-accent-color"></span> 天
+        </div>
+     
+
+     
+</footer>
+
+<script>
+    function show_date_time () {
+        var BirthDay = new Date("03/18/2023 17:00:00");
+        var today = new Date();
+        var timeold = (today.getTime() - BirthDay.getTime());
+        var msPerDay = 24 * 60 * 60 * 1000
+        var day = Math.floor(timeold / msPerDay)
+        since.innerHTML = day
+    }
+    show_date_time()
+</script>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.0.9"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.0.9"></script>
+
+</body>
+
+</html>
