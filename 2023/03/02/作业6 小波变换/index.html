@@ -7,16 +7,22 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SecretBase">
-<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta name="description" content="作业6 小波变换1编程实现图像的二维快速小波变换（分解到二级尺度）。2 利用小波变换后得到的图像，再重构回原来的图像。代码如下：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364&#x2F;&#x2F; verified on op">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小波变换">
+<meta property="og:url" content="http://example.com/2023/03/02/%E4%BD%9C%E4%B8%9A6%20%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/index.html">
 <meta property="og:site_name" content="SecretBase">
+<meta property="og:description" content="作业6 小波变换1编程实现图像的二维快速小波变换（分解到二级尺度）。2 利用小波变换后得到的图像，再重构回原来的图像。代码如下：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364&#x2F;&#x2F; verified on op">
 <meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2023-03-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-07T13:40:00.478Z">
 <meta property="article:author" content="豆豆小狗">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
 
 
-<title >SecretBase</title>
+<title >小波变换</title>
 
 <!-- Favicon -->
 
@@ -58,7 +64,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"豆豆小狗","root":"/","typed_text":["Eleison"],"theme_version":"2.0.9","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"你现在正在浏览我的博客","hideText":"ohno！你离开了"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":false,"isHome":true,"postUpdate":"2023-09-07 21:42:38"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-09-07 21:40:00"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.9" id="trm-switch-style">
@@ -185,7 +191,8 @@
             <!-- top bar end -->
 
             <!-- body -->
-            <div class="trm-content-start">
+            
+<div class="trm-content-start">
     <!-- banner -->
     <div class="trm-banner" data-scroll data-scroll-direction="vertical">
     
@@ -206,10 +213,10 @@
                     <!-- banner title -->
                     <div class="trm-banner-text ">
                         <div class="trm-label trm-mb-20">
-                            Hi my new friend!
+                            NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            WELCOME<br>现在，来到我的秘密blog。
+                            小波变换
                         </h1>
 
                         
@@ -219,7 +226,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        page
+                                        2023
                                     </span
                                 ></li>
                             </ul>
@@ -318,30 +325,49 @@
                 <div class="trm-content" id="trm-content">
                     <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
 
-                    <!-- categories -->
-
-    <div class="row hidden-sm">
-        
-        
-    </div>
-
-<!-- categories end -->
-
-<!-- newest publications -->
-<div class="row">
-    
-        <div class="col-lg-12">
-            <!-- title -->
-            <h5 class="trm-title-with-divider">
-                最近发布 
-                <span data-number="01"></span>
-            </h5>
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            03/02
         </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            00:00
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            豆豆小狗
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="作业6-小波变换"><a href="#作业6-小波变换" class="headerlink" title="作业6 小波变换"></a>作业6 小波变换</h1><h2 id="1编程实现图像的二维快速小波变换（分解到二级尺度）。"><a href="#1编程实现图像的二维快速小波变换（分解到二级尺度）。" class="headerlink" title="1编程实现图像的二维快速小波变换（分解到二级尺度）。"></a>1编程实现图像的二维快速小波变换（分解到二级尺度）。</h2><h2 id="2-利用小波变换后得到的图像，再重构回原来的图像。"><a href="#2-利用小波变换后得到的图像，再重构回原来的图像。" class="headerlink" title="2 利用小波变换后得到的图像，再重构回原来的图像。"></a>2 利用小波变换后得到的图像，再重构回原来的图像。</h2><h3 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">// verified on opencv4.2.0</span><br><span class="line">#include &quot;opencv2/opencv.hpp&quot;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;opencv2/highgui/highgui_c.h&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace cv;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	Mat img = imread(&quot;C:/Users/13986/Desktop/fzu_gray.jpg&quot;, cv::IMREAD_GRAYSCALE);</span><br><span class="line">	int width = img.cols;</span><br><span class="line">	int height = img.rows;</span><br><span class="line">	int depth = 2;</span><br><span class="line">	int depthcount = 1;</span><br><span class="line"></span><br><span class="line">	Mat tmp = Mat::ones(img.size(), CV_32FC1);</span><br><span class="line">	Mat wavelet = Mat::ones(img.size(), CV_32FC1);</span><br><span class="line">	Mat imgtmp = img.clone();</span><br><span class="line">	imshow(&quot;src&quot;, imgtmp);</span><br><span class="line">	imgtmp.convertTo(imgtmp, CV_32FC1, 1.0 / 255);</span><br><span class="line"></span><br><span class="line">	while (depthcount &lt;= depth)</span><br><span class="line">	&#123;</span><br><span class="line">		height = img.rows / depthcount;</span><br><span class="line">		width = img.cols / depthcount;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		//calculate horizen</span><br><span class="line">		for (int i = 0; i &lt; height; i++) //row</span><br><span class="line">		&#123;</span><br><span class="line">			for (int j = 0; j &lt; width / 2; j++) // col</span><br><span class="line">			&#123;</span><br><span class="line">				tmp.at&lt;float&gt;(i, j) = (imgtmp.at&lt;float&gt;(i, 2 * j) + imgtmp.at&lt;float&gt;(i, 2 * j + 1)) / 2; //mean</span><br><span class="line">				tmp.at&lt;float&gt;(i, j + width / 2) = (imgtmp.at&lt;float&gt;(i, 2 * j) - imgtmp.at&lt;float&gt;(i, 2 * j + 1)) / 2; //diff</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		// calculate vertical</span><br><span class="line">		for (int i = 0; i &lt; height / 2; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			for (int j = 0; j &lt; width; j++)</span><br><span class="line">			&#123;</span><br><span class="line">				wavelet.at&lt;float&gt;(i, j) = (tmp.at&lt;float&gt;(2 * i, j) + tmp.at&lt;float&gt;(2 * i + 1, j)) / 2;</span><br><span class="line">				wavelet.at&lt;float&gt;(i + height / 2, j) = (tmp.at&lt;float&gt;(2 * i, j) - tmp.at&lt;float&gt;(2 * i + 1, j)) / 2;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		imgtmp = wavelet;</span><br><span class="line">		depthcount++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	normalize(wavelet, wavelet, 0, 1, cv::NORM_MINMAX);</span><br><span class="line"></span><br><span class="line">	imshow(&quot;wavelet&quot;, wavelet);</span><br><span class="line"></span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="结果如下"><a href="#结果如下" class="headerlink" title="结果如下"></a>结果如下</h3><p><img src="C:\Users\13986\AppData\Roaming\Typora\typora-user-images\image-20230409175714537.png" alt="image-20230409175714537" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+
+</article>
     
+    
+
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
     
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2023/02/18/start/" class="trm-cover-frame trm-anima-link">
+        <a href="/2023/03/07/%E4%BD%9C%E4%B8%9A%E4%B8%83%20%E8%A7%86%E8%A7%89%E7%89%B9%E5%BE%81%E7%9A%84%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A1%A8%E8%BE%BE/" class="trm-cover-frame trm-anima-link">
             
             
                 <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
@@ -355,13 +381,13 @@
                 </a>
             </div>
             <h5>
-                <a href="/2023/02/18/start/" class="trm-anima-link">
-                    第一次的开始
+                <a href="/2023/03/07/%E4%BD%9C%E4%B8%9A%E4%B8%83%20%E8%A7%86%E8%A7%89%E7%89%B9%E5%BE%81%E7%9A%84%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A1%A8%E8%BE%BE/" class="trm-anima-link">
+                    视觉特征的提取与表达
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>23/02/18</li>
+                <li>23/03/07</li>
                 <li>00:00</li>
                 
                 
@@ -370,9 +396,10 @@
     </div>
 </div>
     
+    
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2023/02/17/%E4%BD%9C%E4%B8%9A2.%E7%A9%BA%E9%97%B4%E5%9F%9F%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" class="trm-cover-frame trm-anima-link">
+        <a href="/2023/02/24/%E4%BD%9C%E4%B8%9A4.%E5%BD%A9%E8%89%B2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="trm-cover-frame trm-anima-link">
             
             
                 <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
@@ -386,44 +413,13 @@
                 </a>
             </div>
             <h5>
-                <a href="/2023/02/17/%E4%BD%9C%E4%B8%9A2.%E7%A9%BA%E9%97%B4%E5%9F%9F%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" class="trm-anima-link">
-                    空间域图像增强
+                <a href="/2023/02/24/%E4%BD%9C%E4%B8%9A4.%E5%BD%A9%E8%89%B2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="trm-anima-link">
+                    彩色图像处理
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>23/02/17</li>
-                <li>00:00</li>
-                
-                
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2023/02/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E6%A6%82%E8%BF%B0_%E4%BD%9C%E4%B8%9A1/" class="trm-cover-frame trm-anima-link">
-            
-            
-                <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
-            
-        </a>
-        
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" #.">
-                    未分类
-                </a>
-            </div>
-            <h5>
-                <a href="/2023/02/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E6%A6%82%E8%BF%B0_%E4%BD%9C%E4%B8%9A1/" class="trm-anima-link">
-                    计算机视觉概述
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>23/02/14</li>
+                <li>23/02/24</li>
                 <li>00:00</li>
                 
                 
@@ -433,12 +429,9 @@
 </div>
     
 </div>
-<!-- newest publications end -->
 
+    
 
-    <div class="trm-pagination">
-        <a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </div>
 
 
                     <div class="trm-divider footer-divider"></div>
@@ -496,6 +489,10 @@
 
             <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
     
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
     
     <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
         <i class="iconfont fas fa-arrow-up"></i>
@@ -534,6 +531,10 @@
     
 
     <!-- 评论插件 -->
+    
+        
+
+        
     
 
 

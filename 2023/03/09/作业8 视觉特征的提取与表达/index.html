@@ -7,16 +7,22 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SecretBase">
-<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta name="description" content="作业8 视觉特征的提取与表达针对一张20*20的图像块，编程计算该图像块的灰度共生矩阵（d&#x3D;1,θ&#x3D;0°），并将原始图像块和共生矩阵的数值显示出来。将程序代码也上传。编程语言不限。 代码运行结果：  代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474">
+<meta property="og:type" content="article">
+<meta property="og:title" content="视觉特征提取与表达">
+<meta property="og:url" content="http://example.com/2023/03/09/%E4%BD%9C%E4%B8%9A8%20%E8%A7%86%E8%A7%89%E7%89%B9%E5%BE%81%E7%9A%84%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A1%A8%E8%BE%BE/index.html">
 <meta property="og:site_name" content="SecretBase">
+<meta property="og:description" content="作业8 视觉特征的提取与表达针对一张20*20的图像块，编程计算该图像块的灰度共生矩阵（d&#x3D;1,θ&#x3D;0°），并将原始图像块和共生矩阵的数值显示出来。将程序代码也上传。编程语言不限。 代码运行结果：  代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474">
 <meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2023-03-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-07T13:41:01.601Z">
 <meta property="article:author" content="豆豆小狗">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
 
 
-<title >SecretBase</title>
+<title >视觉特征提取与表达</title>
 
 <!-- Favicon -->
 
@@ -58,7 +64,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"豆豆小狗","root":"/","typed_text":["Eleison"],"theme_version":"2.0.9","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"你现在正在浏览我的博客","hideText":"ohno！你离开了"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":false,"isHome":true,"postUpdate":"2023-09-07 21:42:38"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-09-07 21:41:01"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.9" id="trm-switch-style">
@@ -185,7 +191,8 @@
             <!-- top bar end -->
 
             <!-- body -->
-            <div class="trm-content-start">
+            
+<div class="trm-content-start">
     <!-- banner -->
     <div class="trm-banner" data-scroll data-scroll-direction="vertical">
     
@@ -206,10 +213,10 @@
                     <!-- banner title -->
                     <div class="trm-banner-text ">
                         <div class="trm-label trm-mb-20">
-                            Hi my new friend!
+                            NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            WELCOME<br>现在，来到我的秘密blog。
+                            视觉特征提取与表达
                         </h1>
 
                         
@@ -219,7 +226,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        page
+                                        2023
                                     </span
                                 ></li>
                             </ul>
@@ -318,30 +325,50 @@
                 <div class="trm-content" id="trm-content">
                     <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
 
-                    <!-- categories -->
-
-    <div class="row hidden-sm">
-        
-        
-    </div>
-
-<!-- categories end -->
-
-<!-- newest publications -->
-<div class="row">
-    
-        <div class="col-lg-12">
-            <!-- title -->
-            <h5 class="trm-title-with-divider">
-                最近发布 
-                <span data-number="01"></span>
-            </h5>
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            03/09
         </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            00:00
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            豆豆小狗
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="作业8-视觉特征的提取与表达"><a href="#作业8-视觉特征的提取与表达" class="headerlink" title="作业8 视觉特征的提取与表达"></a>作业8 视觉特征的提取与表达</h1><p>针对一张20*20的图像块，编程计算该图像块的灰度共生矩阵（d&#x3D;1,θ&#x3D;0°），<br>并将原始图像块和共生矩阵的数值显示出来。<br>将程序代码也上传。编程语言不限。</p>
+<p>代码运行结果：</p>
+<p><img src="C:\Users\13986\AppData\Roaming\Typora\typora-user-images\image-20230508220728542.png" alt="image-20230508220728542" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">import cv2 as cv</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">class ComatrixCaler(object):</span><br><span class="line">    def __init__(self,mat,a=1,b=0) -&gt; None:</span><br><span class="line">        self.mat = mat</span><br><span class="line">        self.a = a</span><br><span class="line">        self.b = b</span><br><span class="line">        self.countMatrix = None</span><br><span class="line">        self.probaMatrix = None</span><br><span class="line">        self.l = None</span><br><span class="line">        self.calComatrix()</span><br><span class="line"></span><br><span class="line">    @staticmethod</span><br><span class="line">    def getRange(a,b,r,c):</span><br><span class="line">        opa,opb = int(a/abs(a)) if a!=0 else 1,int(b/abs(b)) if b!=0 else 1</span><br><span class="line">        lb_r = 0 if opb&gt;=0 else r-1</span><br><span class="line">        rb_r = r-b if opb&gt;=0 else 0+b+1</span><br><span class="line">        lb_c = 0 if opa&gt;=0 else c-1</span><br><span class="line">        rb_c = c-a if opa&gt;=0 else 0+a+1</span><br><span class="line">        return range(lb_r,rb_r,opb),range(lb_c,rb_c,opa)</span><br><span class="line">    </span><br><span class="line">    def calComatrix(self):</span><br><span class="line">        self.l = list(set(self.mat.flatten().tolist()))</span><br><span class="line">        self.l.sort()</span><br><span class="line">        counts = self.l.__len__()</span><br><span class="line">        m = &#123;k:v for k,v in zip(self.l,range(counts))&#125;</span><br><span class="line">        countMat = np.zeros([counts,counts])</span><br><span class="line">        r,c = self.mat.shape</span><br><span class="line">        borders = self.getRange(self.a,self.b,r,c)</span><br><span class="line">        for i in borders[0]:</span><br><span class="line">            for j in borders[1]:</span><br><span class="line">                countMat[m[self.mat[i,j]],m[self.mat[i+self.b,j+self.a]]]+=1</span><br><span class="line">                countMat[m[self.mat[r-i-1,c-j-1]],m[self.mat[r-1-i-self.b,c-1-j-self.a]]]+=1</span><br><span class="line">        self.countMatrix = countMat.astype(&#x27;uint8&#x27;)</span><br><span class="line">        self.probaMatrix = countMat/self.countMatrix.sum()</span><br><span class="line">    def setargs(self,a,b):</span><br><span class="line">        self.a = a</span><br><span class="line">        self.b = b</span><br><span class="line">        self.calComatrix()</span><br><span class="line"></span><br><span class="line">egm = np.array([[0,0,1,1],[0,0,1,1],[0,2,2,2],[2,2,3,3]])</span><br><span class="line"></span><br><span class="line"># 这里复现了一下PPT里的例子</span><br><span class="line">eg = ComatrixCaler(egm)</span><br><span class="line">print(eg.countMatrix,eg.probaMatrix)</span><br><span class="line">eg.setargs(-1,-1)</span><br><span class="line">print(eg.countMatrix,eg.probaMatrix)</span><br><span class="line"></span><br><span class="line">img = cv.imread(&quot;C:/Users/13986/Desktop/apple111.jpg&quot;,flags=cv.IMREAD_GRAYSCALE).astype(np.uint8)</span><br><span class="line">#cv.imshow(&#x27;img&#x27;,img)</span><br><span class="line">img = img - np.mod(img,25)</span><br><span class="line"># orange = cv.resize(orange,(20,20))</span><br><span class="line">print(list(set(img.flatten().tolist())).__len__())</span><br><span class="line">img_com = ComatrixCaler(img)</span><br><span class="line">img_float_gray = img_com.probaMatrix</span><br><span class="line"></span><br><span class="line">fig,axs = plt.subplots(1,3)</span><br><span class="line">cv.namedWindow(&#x27;result1&#x27;, cv.WINDOW_NORMAL)</span><br><span class="line">cv.imshow(&#x27;result1&#x27;,img)</span><br><span class="line">cv.namedWindow(&#x27;result2&#x27;, cv.WINDOW_NORMAL)</span><br><span class="line">cv.imshow(&#x27;result2&#x27;,img_float_gray)</span><br><span class="line">cv.namedWindow(&#x27;result3&#x27;, cv.WINDOW_NORMAL)</span><br><span class="line">cv.imshow(&#x27;result3&#x27;,img_com.countMatrix)</span><br></pre></td></tr></table></figure>
+</article>
     
+    
+
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
     
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2023/02/18/start/" class="trm-cover-frame trm-anima-link">
+        <a href="/2023/03/12/%E4%BD%9C%E4%B8%9A9%20%E7%89%A9%E4%BD%93%E8%AF%86%E5%88%AB/" class="trm-cover-frame trm-anima-link">
             
             
                 <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
@@ -355,13 +382,13 @@
                 </a>
             </div>
             <h5>
-                <a href="/2023/02/18/start/" class="trm-anima-link">
-                    第一次的开始
+                <a href="/2023/03/12/%E4%BD%9C%E4%B8%9A9%20%E7%89%A9%E4%BD%93%E8%AF%86%E5%88%AB/" class="trm-anima-link">
+                    物体识别
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>23/02/18</li>
+                <li>23/03/12</li>
                 <li>00:00</li>
                 
                 
@@ -370,9 +397,10 @@
     </div>
 </div>
     
+    
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2023/02/17/%E4%BD%9C%E4%B8%9A2.%E7%A9%BA%E9%97%B4%E5%9F%9F%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" class="trm-cover-frame trm-anima-link">
+        <a href="/2023/03/07/%E4%BD%9C%E4%B8%9A%E4%B8%83%20%E8%A7%86%E8%A7%89%E7%89%B9%E5%BE%81%E7%9A%84%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A1%A8%E8%BE%BE/" class="trm-cover-frame trm-anima-link">
             
             
                 <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
@@ -386,44 +414,13 @@
                 </a>
             </div>
             <h5>
-                <a href="/2023/02/17/%E4%BD%9C%E4%B8%9A2.%E7%A9%BA%E9%97%B4%E5%9F%9F%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" class="trm-anima-link">
-                    空间域图像增强
+                <a href="/2023/03/07/%E4%BD%9C%E4%B8%9A%E4%B8%83%20%E8%A7%86%E8%A7%89%E7%89%B9%E5%BE%81%E7%9A%84%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A1%A8%E8%BE%BE/" class="trm-anima-link">
+                    视觉特征的提取与表达
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>23/02/17</li>
-                <li>00:00</li>
-                
-                
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2023/02/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E6%A6%82%E8%BF%B0_%E4%BD%9C%E4%B8%9A1/" class="trm-cover-frame trm-anima-link">
-            
-            
-                <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
-            
-        </a>
-        
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" #.">
-                    未分类
-                </a>
-            </div>
-            <h5>
-                <a href="/2023/02/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E6%A6%82%E8%BF%B0_%E4%BD%9C%E4%B8%9A1/" class="trm-anima-link">
-                    计算机视觉概述
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>23/02/14</li>
+                <li>23/03/07</li>
                 <li>00:00</li>
                 
                 
@@ -433,12 +430,9 @@
 </div>
     
 </div>
-<!-- newest publications end -->
 
+    
 
-    <div class="trm-pagination">
-        <a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </div>
 
 
                     <div class="trm-divider footer-divider"></div>
@@ -496,6 +490,10 @@
 
             <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
     
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
     
     <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
         <i class="iconfont fas fa-arrow-up"></i>
@@ -534,6 +532,10 @@
     
 
     <!-- 评论插件 -->
+    
+        
+
+        
     
 
 

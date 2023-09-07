@@ -7,16 +7,22 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SecretBase">
-<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta name="description" content="vuevue 安装 初始化安装：npm install -g @vue&#x2F;cli 初始化 vue create projectname初学选择babel和pwa  关掉formatter版本选择3 开启服务npm run serve位置localhost:8080高亮插件vetur 2.0     volar 3.0&#96; 项目结构assets 存放静态资源component 公共组件app.v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue">
+<meta property="og:url" content="http://example.com/2023/05/14/vue/index.html">
 <meta property="og:site_name" content="SecretBase">
+<meta property="og:description" content="vuevue 安装 初始化安装：npm install -g @vue&#x2F;cli 初始化 vue create projectname初学选择babel和pwa  关掉formatter版本选择3 开启服务npm run serve位置localhost:8080高亮插件vetur 2.0     volar 3.0&#96; 项目结构assets 存放静态资源component 公共组件app.v">
 <meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2023-05-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-07T13:38:25.265Z">
 <meta property="article:author" content="豆豆小狗">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
 
 
-<title >SecretBase</title>
+<title >vue</title>
 
 <!-- Favicon -->
 
@@ -58,7 +64,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"豆豆小狗","root":"/","typed_text":["Eleison"],"theme_version":"2.0.9","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"你现在正在浏览我的博客","hideText":"ohno！你离开了"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":false,"isHome":true,"postUpdate":"2023-09-07 21:42:38"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-09-07 21:38:25"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.9" id="trm-switch-style">
@@ -185,7 +191,8 @@
             <!-- top bar end -->
 
             <!-- body -->
-            <div class="trm-content-start">
+            
+<div class="trm-content-start">
     <!-- banner -->
     <div class="trm-banner" data-scroll data-scroll-direction="vertical">
     
@@ -206,10 +213,10 @@
                     <!-- banner title -->
                     <div class="trm-banner-text ">
                         <div class="trm-label trm-mb-20">
-                            Hi my new friend!
+                            NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            WELCOME<br>现在，来到我的秘密blog。
+                            vue
                         </h1>
 
                         
@@ -219,7 +226,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        page
+                                        2023
                                     </span
                                 ></li>
                             </ul>
@@ -318,30 +325,64 @@
                 <div class="trm-content" id="trm-content">
                     <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
 
-                    <!-- categories -->
-
-    <div class="row hidden-sm">
-        
-        
-    </div>
-
-<!-- categories end -->
-
-<!-- newest publications -->
-<div class="row">
-    
-        <div class="col-lg-12">
-            <!-- title -->
-            <h5 class="trm-title-with-divider">
-                最近发布 
-                <span data-number="01"></span>
-            </h5>
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            05/14
         </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            00:00
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            豆豆小狗
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h2 id="vue-安装-初始化"><a href="#vue-安装-初始化" class="headerlink" title="vue 安装 初始化"></a>vue 安装 初始化</h2><p>安装：<code>npm install -g @vue/cli 初始化 </code>vue create projectname<code>初学选择</code>babel和pwa  关掉formatter<code>版本选择3 开启服务</code>npm run serve<code>位置</code>localhost:8080<code>高亮插件</code>vetur 2.0     volar 3.0&#96;</p>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><p>assets 存放静态资源<br>component 公共组件<br>app.vue 根组件<br>main.js主入口文件<br>register监听文件</p>
+<h2 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h2><p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/essentials/template-syntax.html">https://cn.vuejs.org/guide/essentials/template-syntax.html</a><br>双花括号没法直接渲染html<br>可以用v-html渲染<br>v-bind将属性和变量绑定 可以简写为：</p>
+<h2 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h2><p><code>v-if</code> 条件返回为真时渲染<br><code>v-else</code>表示<code>v-if</code>的else模块<br><code>v-if</code>是真正的条件渲染，确保适当的销毁和重建，同时也是惰性的，只有条件第一次为真才开始渲染条件块</p>
+<h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v-for=&quot;(item,index) in items&quot; :key=&quot;item.id&quot;</span><br></pre></td></tr></table></figure>
+<p>把一个数组映射为一组元素<br>#严格禁止使用八进制<br>v-for使用的是就地更新，如果数据发生变化，只需要渲染变化的部分<br>使用key做主键</p>
+<h2 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h2><p>使用<code>v-on</code>指令，通常简写为@来监听DOM事件，并在事件触发时执行JavaScript<br>methods:里面写上函数，可以用v-on触发<br>event原生事件对象</p>
+<h2 id="表单输入绑定"><a href="#表单输入绑定" class="headerlink" title="表单输入绑定"></a>表单输入绑定</h2><p>v-model用来监听用户输入数据的更新<br>.lazy将回车后或者change之后完成更新，减少立刻反应<br>.trim 自动过滤用户输入的首尾空白字符</p>
+<h2 id="组件基础"><a href="#组件基础" class="headerlink" title="组件基础"></a>组件基础</h2><h3 id="单文件组件"><a href="#单文件组件" class="headerlink" title="单文件组件"></a>单文件组件</h3><p>vue单文件组件 .vue格式 允许将模板、逻辑和样式封装在单个文件中<br>html 模板 逻辑 script  样式 style<br>export 导出组件的名称，内容</p>
+<h3 id="组件使用"><a href="#组件使用" class="headerlink" title="组件使用"></a>组件使用</h3><p>import引入组件 import xxx from</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import HelloWorld from &#x27;./components/HelloWorld.vue&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    HelloWorld,</span><br><span class="line">    MyComponent</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;MyComponent /&gt;</span><br></pre></td></tr></table></figure>
+<p>components 挂载组件<br>组件名做标签，显示组件<br>style中加上scoped，则只在此组件中生效<br>组件通常会以一棵嵌套的组件树的形式来组织</p>
+<h2 id="组件交互"><a href="#组件交互" class="headerlink" title="组件交互"></a>组件交互</h2><p>prop组件交互</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> &lt;MyComponent :title=&quot;title&quot;/&gt;</span><br><span class="line"> </span><br><span class="line"> export default&#123;</span><br><span class="line">    name:&quot;Mycomponent&quot;,</span><br><span class="line">    props:&#123;</span><br><span class="line">        title:&#123;</span><br><span class="line">            type:String,</span><br><span class="line">            default:&quot;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="自定义事件组件交互"><a href="#自定义事件组件交互" class="headerlink" title="自定义事件组件交互"></a>自定义事件组件交互</h2><p>从component传到app中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=&quot;sendmessage&quot;&gt;点击传递&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">methods:&#123;</span><br><span class="line">        sendmessage()&#123;</span><br><span class="line">            this.$emit(&quot;onEvent&quot;,this.smessage)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">&lt;MyComponent :title=&quot;title&quot; :age=&quot;age&quot; @onEvent=&quot;getData&quot;/&gt;</span><br><span class="line"></span><br><span class="line">methods:&#123;</span><br><span class="line">    getData(data)</span><br><span class="line">    &#123;console.log(data);&#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h2><p><img src="C:\Users\13986\AppData\Roaming\Typora\typora-user-images\image-20230414114521734.png" alt="image-20230414114521734" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="axios网络请求"><a href="#axios网络请求" class="headerlink" title="axios网络请求"></a>axios网络请求</h2><p>get 请求 <code>axios.get(url).then(res =&gt;&#123;console,log(res.data);&#125;)</code><br>post请求需要做额外处理</p>
+
+</article>
     
+    
+
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
     
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2023/02/18/start/" class="trm-cover-frame trm-anima-link">
+        <a href="/2023/09/07/#%20python%E7%AC%94%E8%AE%B0/" class="trm-cover-frame trm-anima-link">
             
             
                 <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
@@ -355,14 +396,14 @@
                 </a>
             </div>
             <h5>
-                <a href="/2023/02/18/start/" class="trm-anima-link">
-                    第一次的开始
+                <a href="/2023/09/07/#%20python%E7%AC%94%E8%AE%B0/" class="trm-anima-link">
+                    python笔记
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>23/02/18</li>
-                <li>00:00</li>
+                <li>23/09/07</li>
+                <li>19:49</li>
                 
                 
             </ul>
@@ -370,9 +411,10 @@
     </div>
 </div>
     
+    
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2023/02/17/%E4%BD%9C%E4%B8%9A2.%E7%A9%BA%E9%97%B4%E5%9F%9F%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" class="trm-cover-frame trm-anima-link">
+        <a href="/2023/04/18/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="trm-cover-frame trm-anima-link">
             
             
                 <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
@@ -386,44 +428,13 @@
                 </a>
             </div>
             <h5>
-                <a href="/2023/02/17/%E4%BD%9C%E4%B8%9A2.%E7%A9%BA%E9%97%B4%E5%9F%9F%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" class="trm-anima-link">
-                    空间域图像增强
+                <a href="/2023/04/18/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="trm-anima-link">
+                    hexo搭建个人博客
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>23/02/17</li>
-                <li>00:00</li>
-                
-                
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2023/02/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E6%A6%82%E8%BF%B0_%E4%BD%9C%E4%B8%9A1/" class="trm-cover-frame trm-anima-link">
-            
-            
-                <img alt="cover" class="no-fancybox" src="/img/00003.jpg">
-            
-        </a>
-        
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" #.">
-                    未分类
-                </a>
-            </div>
-            <h5>
-                <a href="/2023/02/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E6%A6%82%E8%BF%B0_%E4%BD%9C%E4%B8%9A1/" class="trm-anima-link">
-                    计算机视觉概述
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>23/02/14</li>
+                <li>23/04/18</li>
                 <li>00:00</li>
                 
                 
@@ -433,12 +444,9 @@
 </div>
     
 </div>
-<!-- newest publications end -->
 
+    
 
-    <div class="trm-pagination">
-        <a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </div>
 
 
                     <div class="trm-divider footer-divider"></div>
@@ -496,6 +504,10 @@
 
             <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
     
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
     
     <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
         <i class="iconfont fas fa-arrow-up"></i>
@@ -534,6 +546,10 @@
     
 
     <!-- 评论插件 -->
+    
+        
+
+        
     
 
 
